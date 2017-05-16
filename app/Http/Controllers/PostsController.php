@@ -33,15 +33,10 @@ class PostsController extends Controller
         //
         // $posts = $posts->get();
 
-        //ovo je privremeno
-        $archives = Post::selectRaw('year(created_at) year,monthname(created_at) month,count(*) published')
-            ->groupBy('year', 'month')
-            ->orderByRaw('min(created_at) desc')
-            ->get()
-            ->toArray(); //dodati jos ovo ako hoces polje
+
 
         //$posts = Post::latest()->get();
-        return view('posts.index', compact('posts','archives'));
+        return view('posts.index', compact('posts'));
     }
 
     public function show(Post $post)
