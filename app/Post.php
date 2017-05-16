@@ -6,7 +6,7 @@ namespace App;
 
 class Post extends Model
 {
-    // protected $fillable = ['title', 'body']; //ova polja se mogu uredjivati
+    protected $fillable = ['title', 'body', 'user_id']; //ova polja se mogu uredjivati
     // //protected $guarded = ['title', 'body']; //ova polja se ne mogu uredjivati
 
     public function comments()
@@ -19,7 +19,7 @@ class Post extends Model
     public function user() // $post->user->name
     {
         //$post->comments
-        return $this->hasMany(User::class); //Comment::class je isto kao i App\Comment
+        return $this->belongsTo(User::class); //Comment::class je isto kao i App\Comment
 
     }
 

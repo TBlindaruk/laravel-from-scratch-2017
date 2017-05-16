@@ -4,7 +4,11 @@
             {{ $post -> title}}
         </a>
     </h2>
-    <p class="blog-post-meta">{{ $post -> created_at -> toFormattedDateString() }} </p>
+    <p>
+        {{ $post->user->name }} on {{ $post -> created_at -> toFormattedDateString() }}
+    </p>
 
-    <p>{{ $post -> body}}</p>
+    <p>
+        {{ $post -> body}}
+    </p>
 </div><!-- /.blog-post -->
