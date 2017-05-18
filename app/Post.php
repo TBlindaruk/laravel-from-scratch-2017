@@ -55,4 +55,9 @@ class Post extends Model
             ->get()
             ->toArray(); //dodati jos ovo ako hoces polje
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

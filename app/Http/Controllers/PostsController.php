@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Repositories\Posts;
+use App\Tag;
 
 
 class PostsController extends Controller
@@ -14,8 +15,10 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index(Posts $posts)
+    public function index(Posts $posts) //public function index(Posts $posts, Tag $tag = null)
     {
+
+        //return $tag->posts;
         //dd($posts);
 
         $posts = $posts->all();
@@ -85,6 +88,7 @@ class PostsController extends Controller
         // ]);
 
         // Post::create(request(['title', 'body]));
+        session()->flash('message', 'Your post has now been published');
 
         return redirect('/');
     }
