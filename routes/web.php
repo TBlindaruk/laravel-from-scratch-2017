@@ -11,6 +11,18 @@
 |
 */
 
+
+
+//dd(resolve('App\Billing\Stripe'));
+
+// App::singleton('App\Billing\Stripe', function(){ //ukoliko zelis samo jednu istancu
+//     return new \App\Billing\Stripe(config('services.stripe.secret'));
+// });
+
+// $stripe = App::make('App\Billing\Stripe');
+//
+// dd($stripe);
+
 Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show');
